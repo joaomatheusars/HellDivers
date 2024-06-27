@@ -1,0 +1,27 @@
+{% load static tailwind_tags %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HELLDIVERS 2</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="{%  static '/svg/HelldiversSkull.svg' %}">
+    {% tailwind_css %}
+  </head>
+
+  <body
+    class="bg-[url('/static/img/Helldivers2.jpg')] w-full bg-no-repeat bg-cover text-white h-screen"
+  >
+    <div class="w-full flex justify-center items-center pt-8">
+      <img
+        src="{% static 'img/logo.png' %}"
+        alt="logo"
+        width="500"
+        height="500"
+      />
+    </div>
+
+    {% block content %} {% endblock %} 
+  </body>
+</html>
