@@ -2,8 +2,8 @@ from prisma import Prisma
 import random as rad
 
 async def database(helldivers: int = None, repeat:bool = None, equipament:bool = None, booster: bool = None):
-    def random_number(list: list):
-        number = rad.randint(0, len(list) - 1)
+    def random_number(max: list | dict):
+        number = rad.randint(0, len(max) - 1)
         
         return number
     
@@ -68,10 +68,7 @@ async def database(helldivers: int = None, repeat:bool = None, equipament:bool =
             
     await db.disconnect()
     
-    def stratagems_config(check_list_stratagem: list = [], 
-                          stratagem_option: bool = None, 
-                          stratagem_bd: int = None):
-        
+    def stratagems_config(check_list_stratagem: list = [], stratagem_option: bool = None, stratagem_bd: int = None):        
         # Verifica se não há 2 MECAS no mesmo Helldiver
         def check_exosuit(): 
             if 'tQtFJhZGsunkyaG' in check_list and 'QQyhlHekDYxGRKe' in check_list:

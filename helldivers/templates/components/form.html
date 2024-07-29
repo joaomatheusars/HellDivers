@@ -1,6 +1,6 @@
 {% extends 'index.html' %} {% block content %}
 <div
-  class="w-full justify-center mt-8 bg-[#101010] container mx-auto min-h-[340px] bg-opacity-70 rounded-lg" 
+  class="w-full justify-center mt-8 bg-[#101010] container mx-auto min-h-[340px] bg-opacity-70 rounded-lg"
 >
   <!-- <div>
     <h2>Aleatorio</h2>
@@ -8,41 +8,50 @@
   <div class="p-5">
     <form action="" method="post">
       {% csrf_token %}
-      <div class="flex gap-4">
-        <div class="flex items-center gap-4">
-          <span>HellDivers</span>
-          <select
-            name="helldivers"
-            id=""
-            class="text-black rounded-sm h-10 w-20 p-0 pl-4"
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div>
-        <div class="flex justify-center items-center gap-2">
-          <span>Repeat Strategems: </span>
-          <div>
-            <input type="checkbox" name="repeat" class="cursor-pointer"/>
+      <div class="flex gap-4 justify-between">
+        <div class="flex gap-4">
+          <div class="flex items-center gap-4">
+            <span>HellDivers</span>
+            <select
+              name="helldivers"
+              id=""
+              class="text-black rounded-sm h-10 w-20 p-0 pl-4"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div class="flex justify-center items-center gap-2">
+            <span>Repeat Strategems: </span>
+            <div>
+              <input type="checkbox" name="repeat" class="cursor-pointer" />
+            </div>
+          </div>
+          <div class="flex justify-center items-center gap-2">
+            <span>Equipament: </span>
+            <div>
+              <input type="checkbox" name="equipament" class="cursor-pointer" />
+            </div>
+          </div>
+          <div class="flex justify-center items-center gap-2">
+            <span>Booster: </span>
+            <div>
+              <input type="checkbox" name="booster" class="cursor-pointer" />
+            </div>
           </div>
         </div>
-        <div class="flex justify-center items-center gap-2">
-          <span>Equipament: </span>
-          <div>
-            <input type="checkbox" name="equipament" class="cursor-pointer"/>
-          </div>
-        </div>
-        <div class="flex justify-center items-center gap-2">
-          <span>Booster: </span>
-          <div>
-            <input type="checkbox" name="booster" class="cursor-pointer"/>
-          </div>
-        </div>
+
+        <div class="flex justify-center items-center gap-2">Buy me a coffe</div>
       </div>
 
-      <button type="submit" class="w-full bg-yellow-600 rounded-md p-1 font-bold mt-2">Generate</button>
+      <button
+        type="submit"
+        class="w-full bg-yellow-600 rounded-md p-1 font-bold mt-2"
+      >
+        Generate
+      </button>
     </form>
     {% block helldiver %} {% endblock %}
   </div>
