@@ -1,5 +1,5 @@
-from prisma import Prisma
 import random as rad
+from prisma import Prisma
 
 async def database(helldivers: int = None, repeat:bool = None, equipament:bool = None, booster: bool = None):
     def random_number(max: list | dict):
@@ -43,11 +43,12 @@ async def database(helldivers: int = None, repeat:bool = None, equipament:bool =
 
         return helldiver_soldier
     
-    # Consulta Banco de Dados
+    # Consulta Banco de Dados        
     db = Prisma()
+    await db.connect()
+    
     helldiver_list = []
     
-    await db.connect()
     
     stratagems = await db.stratagems.find_many()
     
