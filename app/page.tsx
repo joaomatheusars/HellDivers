@@ -129,7 +129,7 @@ export default function Home() {
             {dataHelldivers ? (
               <ScrollArea className="w-full whitespace-nowrap overflow-auto h-96 mt-16">
                 <div className="h-full  flex justify-center items-center  ">
-                  {dataHelldivers && <Helldivers helldivers={dataHelldivers} />}
+                  {dataHelldivers && <Helldivers helldivers={dataHelldivers} key={"123"}/>}
                 </div>
                 <ScrollBar orientation="horizontal" color="#FFEE00" />
               </ScrollArea>
