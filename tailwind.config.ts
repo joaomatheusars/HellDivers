@@ -34,6 +34,9 @@ const config = {
       },
       fontFamily: {
         sans: ['var(--font-helldiver)']
+      },
+      backgroundImage: {
+        'bg': "url(/helldivers-2.jpg)"
       }
     },
   },
