@@ -39,9 +39,10 @@ export default function Home() {
     const value = await resHelldivers;
     setData(value.helldivers);
   };
+  const bg = "https://res.cloudinary.com/dwr8q4ucv/image/upload/v1724094644/HellDivers2/na4awxovxziaohptwdzi.jpg"
   return (
     <div className="">
-      <div className="bg-[url('/Helldivers-2.jpg')] h-screen bg-repeat bg-cover flex ">
+      <div className={`bg-[url(${bg})] h-screen bg-repeat bg-cover flex`}  >
         <div className="flex flex-col justify-between bg-[#1C1C1C] bg-opacity-40  text-[#FFEE00] p-8 border-r-2 border-[#FFEE00]">
           <div>
             <h1 className="text-5xl w-full text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
