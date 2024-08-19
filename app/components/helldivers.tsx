@@ -35,7 +35,7 @@ const Helldivers = ({ helldivers }: HelldiverProps) => {
     <div className="flex justify-center items-center gap-5 [&::-webkit-scrollbar]:hidden">
       
         {helldivers.map((e: any) => (
-          <div className="bg-[#1C1C1C] bg-opacity-60 rounded-lg flex flex-col items-center gap-4 p-5 border-2 border-[#FFEE00] min-w-[290px] " id={helldivers.helldiver}>
+          <div className="bg-[#1C1C1C] bg-opacity-60 rounded-lg flex flex-col items-center gap-4 p-5 border-2 border-[#FFEE00] min-w-[290px] " id={e.helldiver}>
             <h3 className="text-3xl text-white">H-{e.helldiver}</h3>
             <svg
               className={`fill-current h-32 w-32 ${skullColor(e.helldiver)}`}
