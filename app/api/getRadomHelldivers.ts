@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const useRadomHelldivers = () => {
+  const apiURL = "https://delicate-margit-albergaria-df857990.koyeb.app"
   const getHelldivers = async (
     helldivers: any,
     stratagem: any,
@@ -9,7 +10,7 @@ export const useRadomHelldivers = () => {
   ) => {
     const res = async () => {
       try {
-        const api = `http://localhost:8000/random_helldiver/${helldivers}_${stratagem}_${equipaments}_${booster}`;
+        const api = `${apiURL}/random_helldiver/${helldivers}_${stratagem}_${equipaments}_${booster}`;
         const res = await axios.get(api);
         return res;
       } catch {
