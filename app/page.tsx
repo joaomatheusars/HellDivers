@@ -22,6 +22,7 @@ type CreateFormSchema = z.infer<typeof createFormSchema>;
 
 export default function Home() {
   const [dataHelldivers, setData] = useState("");
+  const [load, setLoad] = useState(false);
   const helldiverService = useRadomHelldivers();
 
   const { register, handleSubmit } = useForm<CreateFormSchema>({
@@ -29,6 +30,7 @@ export default function Home() {
   });
 
   const handleFormSubmit = async (data: CreateFormSchema) => {
+    setLoad(true);
     const resHelldivers = helldiverService?.getHelldivers(
       data.helldiver,
       data.stratagem,
@@ -37,12 +39,14 @@ export default function Home() {
     );
 
     const value = await resHelldivers;
+    if (value.ok) {
+      setLoad(false);
+    }
     setData(value.helldivers);
   };
-  const bg = ""
   return (
     <div className="">
-      <div className={`bg-bg h-screen bg-repeat bg-cover flex`}  >
+      <div className={`bg-bg h-screen bg-repeat bg-cover flex`}>
         <div className="flex flex-col justify-between bg-[#1C1C1C] bg-opacity-40  text-[#FFEE00] p-8 border-r-2 border-[#FFEE00]">
           <div>
             <h1 className="text-5xl w-full text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
@@ -127,17 +131,32 @@ export default function Home() {
               <Image src={"/logo.png"} width={600} height={600} alt="logo" />
             </div>
 
+            {load && (
+              <div className="flex w-full justify-center">
+                <Image
+                  src={"/loading2.svg"}
+                  alt="loading"
+                  width={400}
+                  height={400}
+                />
+              </div>
+            )}
+
             {dataHelldivers ? (
-              <ScrollArea className="w-full whitespace-nowrap overflow-auto h-96 mt-16">
-                <div className="h-full  flex justify-center items-center  ">
-                  {dataHelldivers && <Helldivers helldivers={dataHelldivers} key={"123"}/>}
-                </div>
-                <ScrollBar orientation="horizontal" color="#FFEE00" />
-              </ScrollArea>
-            ) : (
               <>
-                <Info />
+                {!load && (
+                  <ScrollArea className="w-full whitespace-nowrap overflow-auto h-96 mt-16">
+                    <div className="h-full  flex justify-center items-center  ">
+                      {dataHelldivers && (
+                        <Helldivers helldivers={dataHelldivers} key={"123"} />
+                      )}
+                    </div>
+                    <ScrollBar orientation="horizontal" color="#FFEE00" />
+                  </ScrollArea>
+                )}
               </>
+            ) : (
+              <>{!load && <Info />}</>
             )}
           </div>
         </div>
