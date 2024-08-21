@@ -30,6 +30,7 @@ export const useRadomHelldivers = () => {
 
     return {
       helldivers: value.data,
+      ok: true
     };
   };
 
