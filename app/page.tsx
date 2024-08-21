@@ -10,6 +10,7 @@ import { useRadomHelldivers } from "./api/getRadomHelldivers";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Info from "./components/info";
 import BuyMeaCoffe from "./components/buymeacoffee";
+import Rules from "./components/rules";
 
 const createFormSchema = z.object({
   helldiver: z.string(),
@@ -23,6 +24,7 @@ type CreateFormSchema = z.infer<typeof createFormSchema>;
 export default function Home() {
   const [dataHelldivers, setData] = useState("");
   const [load, setLoad] = useState(false);
+  const [rules, setRules] = useState(false);
   const helldiverService = useRadomHelldivers();
 
   const { register, handleSubmit } = useForm<CreateFormSchema>({
@@ -31,6 +33,7 @@ export default function Home() {
 
   const handleFormSubmit = async (data: CreateFormSchema) => {
     setLoad(true);
+    setRules(true)
     const resHelldivers = helldiverService?.getHelldivers(
       data.helldiver,
       data.stratagem,
@@ -65,9 +68,9 @@ export default function Home() {
                   method="POST"
                   action=""
                 >
-                  <div className="mt-4 flex flex-col gap-2">
+                  <div className="mt-4 flex flex-col gap-2 uppercase">
                     <div className="flex items-center">
-                      <span className="text-2xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                      <span className="text-xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                         Helldivers:
                       </span>
                       <select
@@ -82,7 +85,7 @@ export default function Home() {
                       </select>
                     </div>
                     <div>
-                      <span className="text-2xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                      <span className="text-xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                         Repeat Stratagem:
                       </span>
                       <input
@@ -92,7 +95,7 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <span className="text-2xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                      <span className="text-xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                         Radom Equipament:
                       </span>
                       <input
@@ -102,7 +105,7 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <span className="text-2xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                      <span className="text-xl text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                         Radom Booster:
                       </span>
                       <input
@@ -113,7 +116,7 @@ export default function Home() {
                     </div>
                     <button
                       type="submit"
-                      className="text-black bg-[#FFEE00] hover:bg-[#ffee00af] text-2xl w-full"
+                      className="text-black bg-[#FFEE00] hover:bg-[#ffee00af] text-2xl w-full uppercase"
                     >
                       Radom
                     </button>
@@ -122,7 +125,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <BuyMeaCoffe />
+          <div>
+            {rules && <Rules />}
+            <BuyMeaCoffe />
+          </div>
         </div>
 
         <div className="mx-5 overflow-auto h-full w-full flex flex-col">
