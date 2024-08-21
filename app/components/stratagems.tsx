@@ -23,7 +23,7 @@ const Stratagems = ({ stratagems, booster, equipaments }: stratagemsProps) => {
             onClick={toggleButton}
             className="bg-[#FFEE00] text-black w-full"
           >
-            {showButton ? <span>Equipaments</span> : <span>Stratagems</span>}
+            {showButton ? <span className="uppercase">Equipaments</span> : <span className="uppercase">Stratagems</span>}
           </button>
           {showButton ? (
             <div className="flex gap-2">

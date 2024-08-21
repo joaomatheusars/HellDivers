@@ -5,7 +5,7 @@ const Info = () => {
         <h3 className="text-4xl text-nowrap text-[#FFEE00]">How to Use</h3>
         <div className="border-[#FFEE00] border-2 max-h-1 w-full items-center "></div>
       </div>
-      <div className="text-white px-10 text-2xl">
+      <div className="text-white px-10 text-2xl up">
         <ul className="list-disc">
           <li>Select how many Helldivers you want to draw.</li>
           <li>
