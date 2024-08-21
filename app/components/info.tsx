@@ -7,10 +7,9 @@ const Info = () => {
       </div>
       <div className="text-white px-10 text-2xl up">
         <ul className="list-disc">
-          <li>Select how many Helldivers you want to draw.</li>
+          <li>Select Helldivers.</li>
           <li>
-            Select if you want repeat stratagems so that other Helldivers have a
-            chance to receive repeated stratagems.
+          select "repeat strategies" so that a strategy can be drawn more than once
           </li>
           <li>Check 'Random Equipment' to draw random equipment.</li>
           <li>Check 'Random Booster' to draw random boosters.</li>
