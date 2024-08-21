@@ -9,7 +9,7 @@ const Info = () => {
         <ul className="list-disc">
           <li>Select Helldivers.</li>
           <li>
-          select "repeat strategies" so that a strategy can be drawn more than once
+          select "repeat stratagem" so that a stratagem can be drawn more than once
           </li>
           <li>Check 'Random Equipment' to draw random equipment.</li>
           <li>Check 'Random Booster' to draw random boosters.</li>
